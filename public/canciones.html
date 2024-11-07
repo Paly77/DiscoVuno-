@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgregarCanciones</title>
+    <link rel="shortcut icon" href="logo-linkin-park.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-800 h-screen p-6">
+          <ul class="space-y-4 text-white">
+             <li><a href="index.html" class="block hover:bg-gray-700 p-2 rounded">Inicio</a></li>
+             <li><a href="#ver-albumes" class="block hover:bg-gray-700 p-2 rounded">Ver Otros Álbumes</a></li>
+             <li><a href="#cerrar-sesion" class="block hover:bg-gray-700 p-2 rounded">Cerrar Sesión</a></li>
+          </ul>
+        </aside>
+      
+        <!-- Contenido principal (formulario para agregar canciones) -->
+        <main class="flex-1 bg-gray-900 p-10" style="background-image: url('fondolinkin.jpeg');">
+          <h1 class="text-3xl font-bold mb-6 text-white">Añadir Canciones al Álbum</h1>
+          
+          <form name="addSongForm" onsubmit="return validateAddSongForm()" action="#" method="POST" class="bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-md max-w-lg">
+            <!-- Campo de Título -->
+            <div class="mb-4">
+              <label for="titulo" class="block text-white font-semibold mb-2">Título de la Canción</label>
+              <input type="text" id="titulo" name="titulo" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-indigo-500" placeholder="Escribe el título de la canción">
+            </div>
+            
+            <!-- Campo de Duración -->
+            <div class="mb-4">
+              <label for="duracion" class="block text-white font-semibold mb-2">Duración (mm:ss)</label>
+              <input type="text" id="duracion" name="duracion" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-indigo-500" placeholder="Escribe la duración">
+            </div>
+            
+            <!-- Campo de Link de YouTube -->
+            <div class="mb-4">
+              <label for="youtube" class="block text-white font-semibold mb-2">Link de YouTube</label>
+              <input type="url" id="youtube" name="youtube" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-indigo-500" placeholder="Ingresa el enlace a YouTube">
+            </div>
+      
+            <!-- Botones -->
+            <div class="flex justify-between">
+              <button type="submit" class="bg-gray-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-700">
+                Enviar
+              </button>
+              <button type="reset" class="bg-gray-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-700">
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </main>
+    </div>
+    <script>
+      function validateAddSongForm() {
+         const title = document.forms["addSongForm"]["titulo"].value;
+         const duration = document.forms["addSongForm"]["duracion"].value;
+         const youtubeLink = document.forms["addSongForm"]["youtube"].value;
+
+         if (!title || !duration || !youtubeLink) {
+             alert("Por favor, completa todos los campos.");
+             return false;
+         }
+         return true;
+       }
+    </script>
+</body>
+</html>

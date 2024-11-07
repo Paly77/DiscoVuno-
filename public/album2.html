@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Thousand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-800 text-white">
+            <div class="p-4">
+                <ul class="space-y-4">
+                    <li><a href="index.html" class="block hover:bg-gray-700 p-2 rounded">Inicio</a></li>
+                    <li><a href="" class="block hover:bg-gray-700 p-2 rounded">Otros Álbums</a></li>
+                    <li><a href="canciones.html" class="block hover:bg-gray-700 p-2 rounded">Agregar canciones</a></li>
+                    <li><a href="editar.html" class="block hover:bg-gray-700 p-2 rounded">Editar Álbum</a></li>
+                    <li><a href="#" class="block hover:bg-gray-700 p-2 rounded">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Contenido del álbum -->
+        <div class="max-w-3xl mx-auto bg-opacity-30 p-6 rounded-lg" style="width: 100%;">
+            <h2 class="text-2xl font-bold mb-4 text-center">A THOUSAND Suns</h2>
+            <p class="text-center mb-4">Es un álbum conceptual que trata principalmente sobre el miedo a una guerra nuclear. La banda reconoció que, debido a la experimentación con sonidos nuevos y distintos, fue un cambio radical con respecto a sus trabajos anteriores. <br>Shinoda afirmó en una entrevista de MTV que en su obra hacen referencia a numerosos problemas sociales como la «mezcla de ideas humanas con la tecnología» y los «temores [del hombre], el miedo de lo que va a ocurrir en el mundo».1​ El título del álbum proviene de una cita del texto sagrado hinduista Bhagavad Gītā, recordada por Robert Oppenheimer tras la creación de la bomba atómica: «Si cientos de miles de soles aparecieran en el cielo al mismo tiempo, su brillo podría semejarse al de la refulgencia de la Persona Suprema en esa forma universal».</p>
+            
+            <ul class="space-y-4">
+                <!-- Canción 1 -->
+                <li class="flex justify-between items-center bg-opacity-30 p-4 rounded shadow">
+                    <span class="text-lg">Papercut</span>
+                    <div class="flex items-center space-x-2">
+                        <button class="text-blue-500 hover:underline" onclick="playSong('https://www.youtube.com/watch?v=vjVkXlxsO8Q')">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="text-red-500 hover:underline" onclick="deleteSong(this)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </li>
+                
+                <!-- Canción 2 -->
+                <li class="flex justify-between items-center bg-opacity-30 p-4 rounded shadow">
+                    <span class="text-lg">One Step Closer</span>
+                    <div class="flex items-center space-x-2">
+                        <button class="text-blue-500 hover:underline" onclick="playSong('https://www.youtube.com/watch?v=KwN_f0fTHoE')">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="text-red-500 hover:underline" onclick="deleteSong(this)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Función para abrir la canción en una nueva pestaña
+        function playSong(url) {
+            window.open(url, '_blank');
+        }
+
+        // Función para eliminar una canción
+        function deleteSong(element) {
+            element.parentElement.parentElement.remove();
+        }
+    </script>
+</body>
+</html>

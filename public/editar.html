@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Álbum</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 text-white p-8">
+    <div class="max-w-md mx-auto bg-gray-700 p-6 rounded-lg">
+        <h2 class="text-2xl font-bold mb-4 text-center">Editar Álbum</h2>
+
+        <div id="editForm">
+            <label for="newTitle" class="block mb-2 text-sm font-bold">Título del Álbum:</label>
+            <input type="text" id="newTitle" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" placeholder="Título del Álbum" required>
+
+            <label for="newDescription" class="block mb-2 text-sm font-bold">Descripción del Álbum:</label>
+            <textarea id="newDescription" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" rows="4" placeholder="Descripción del Álbum" required></textarea>
+
+            <label for="newUrl" class="block mb-2 text-sm font-bold">URL del Álbum:</label>
+            <input type="text" id="newUrl" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" placeholder="URL del Álbum" required>
+
+            <label for="newArtist" class="block mb-2 text-sm font-bold">Nombre del Artista:</label>
+            <input type="text" id="newArtist" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" placeholder="Nombre del Artista" required>
+
+            <!-- Botones "Editar" y "Cancelar" en el mismo nivel -->
+            <div class="flex gap-4">
+                <button onclick="editAlbum()" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded">Editar</button>
+                <button onclick="cancelEdit()" class="w-full bg-gray-500 hover:bg-gray-600 text-white py-2 rounded">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtener el ID del álbum desde la URL
+        function getAlbumIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id'); // Retorna el valor del parámetro 'id' en la URL
+        }
+
+        // Cargar datos simulados según el ID del álbum
+        function loadAlbumData(albumId) {
+            const albumData = {
+                "1": { title: "Hybrid Theory", description: "El primer álbum de Linkin Park", url: "https://example.com/hybrid-theory", artist: "Linkin Park" },
+                "2": { title: "A Thousand Suns", description: "Un álbum conceptual de Linkin Park", url: "https://example.com/a-thousand-suns", artist: "Linkin Park" },
+                // Agrega más álbumes según sea necesario
+            };
+
+            const album = albumData[albumId];
+            if (album) {
+                document.getElementById("newTitle").value = album.title;
+                document.getElementById("newDescription").value = album.description;
+                document.getElementById("newUrl").value = album.url;
+                document.getElementById("newArtist").value = album.artist;
+            } else {
+                alert("Álbum no encontrado");
+            }
+        }
+
+        // Guardar cambios con validación adicional
+        function editAlbum() {
+            const newTitle = document.getElementById("newTitle").value.trim();
+            const newDescription = document.getElementById("newDescription").value.trim();
+            const newUrl = document.getElementById("newUrl").value.trim();
+            const newArtist = document.getElementById("newArtist").value.trim();
+
+            // Confirmar que todos los campos estén completos
+            if (newTitle && newDescription && newUrl && newArtist) {
+                alert(`Cambios guardados:\nTítulo: ${newTitle}\nDescripción: ${newDescription}\nURL: ${newUrl}\nArtista: ${newArtist}`);
+                // Aquí podrías realizar la lógica para guardar los datos en un backend
+            } else {
+                alert("Por favor completa todos los campos antes de editar.");
+            }
+        }
+
+        // Función para cancelar edición
+        function cancelEdit() {
+            alert("Edición cancelada");
+        }
+
+        // Ejecuta las funciones al cargar la página
+        document.addEventListener("DOMContentLoaded", () => {
+            const albumId = getAlbumIdFromUrl();
+            if (albumId) {
+                loadAlbumData(albumId);
+            }
+        });
+    </script>
+</body>
+</html>

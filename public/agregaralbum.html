@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar-Album</title>
+    <link rel="shortcut icon" href="logo-linkin-park.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="flex min-h-screen">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-800 text-white">
+            <div class="p-4">
+                <h2 class="text-3xl font-bold mb-4">Linkin Park</h2>
+                <ul class="space-y-4">
+                    <li>
+                        <a href="index.html" class="block hover:bg-gray-700 p-2 rounded">Inicio</a>
+                    </li>
+                   
+                    <li>
+                        <a href="canciones.html" class="block hover:bg-gray-700 p-2 rounded">Agregar Canciones</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block hover:bg-gray-700 p-2 rounded">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-8 " style="background-image: url('fondolinkin.jpeg');">
+            
+            <form class="bg-gray-800 bg-opacity-60 p-6 rounded-lg shadow-md max-w-lg">
+                <div class="mb-4">
+                    <label for="titulo" class="block text-white font-bold mb-2">Título del Álbum</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ingresa el título del álbum" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                </div>
+                <div class="mb-4">
+                    <label for="anio" class="block text-white font-bold mb-2">Año de Lanzamiento</label>
+                    <input type="number" id="anio" name="anio" placeholder="Año de lanzamiento" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                </div>
+                <div class="mb-4">
+                    <label for="descripcion" class="block text-white font-bold mb-2">Descripción</label>
+                    <textarea id="descripcion" name="descripcion" rows="4" placeholder="Descripción del álbum" class="w-full px-4 py-2 border border-gray-300 rounded-lg"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gray-500 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-lg">
+                    Agregar Álbum
+                </button>
+            </form>
+        </main>
+    </div>
+    
+</body>
+</html>
