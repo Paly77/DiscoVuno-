@@ -12,16 +12,16 @@
 
         <div id="editForm">
             <label for="newTitle" class="block mb-2 text-sm font-bold">Título del Álbum:</label>
-            <input type="text" id="newTitle" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" placeholder="Título del Álbum" required>
+            <input type="text" name="titulo" id="newTitle" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" placeholder="Título del Álbum" required>
 
             <label for="newDescription" class="block mb-2 text-sm font-bold">Descripción del Álbum:</label>
-            <textarea id="newDescription" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" rows="4" placeholder="Descripción del Álbum" required></textarea>
+            <textarea name="descripcion" id="newDescription" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" rows="4" placeholder="Descripción del Álbum" required></textarea>
 
             <label for="newUrl" class="block mb-2 text-sm font-bold">URL del Álbum:</label>
-            <input type="text" id="newUrl" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" placeholder="URL del Álbum" required>
+            <input type="text" name="url" id="newUrl" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" placeholder="URL del Álbum" required>
 
-            <label for="newArtist" class="block mb-2 text-sm font-bold">Nombre del Artista:</label>
-            <input type="text" id="newArtist" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" placeholder="Nombre del Artista" required>
+            <label for="releaseYear" class="block mb-2 text-sm font-bold">Año de Lanzamiento</label>
+            <input type="number" name="añoLanzamiento" id="releaseYear" class="w-full p-2 mb-4 bg-gray-800 rounded border border-gray-500 text-white" placeholder="Año de Lanzamiento" required>
 
             <!-- Botones "Editar" y "Cancelar" en el mismo nivel -->
             <div class="flex gap-4">

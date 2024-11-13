@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { populate } = require('./album');
+const Album = require('./album');
 
 const user = new mongoose.Schema({
   nombre: {
@@ -18,7 +18,7 @@ const user = new mongoose.Schema({
     unique: true,
     match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
   },
-  contraseña: {
+  password: {
     type: String,
     required: true
   },
