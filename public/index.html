@@ -80,6 +80,7 @@
             </div>
         </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Código JavaScript para añadir estrellas a favoritos 
     <script> 
         const favoriteRecords = ["disco1", "disco2", "disco3"];
@@ -106,6 +107,7 @@
         addFavorites(favoriteRecords);
     </script> -->
     <script>
+        console.log("ESTAMOS CONECTADOS CORRECTAMENTE")
         document.querySelectorAll(".favorite-icon").forEach(icon => {
             icon.addEventListener("click", () => {
                 // Alternar la clase para cambiar el estilo
@@ -114,6 +116,16 @@
                 icon.classList.toggle("text-red-500");
             });
         });
+        async function getAlbums(){
+            try {
+                const response = await axios.get("http://localhost:3000/album")
+                console.log(response.data)
+            } catch (error) {
+                console.error(error);
+                
+            }
+        }
+        getAlbums()
     </script>
 
 

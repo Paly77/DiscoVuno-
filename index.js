@@ -14,7 +14,7 @@ const url = 'mongodb+srv://pauloretor77:QzVmISxFxwYwHtpB@mongo.wgxuw.mongodb.net
 const app=express()
 app.use(express.json())//para parsear los datos
 const path = require("path");
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")));//Nos permite trabajar con archivos estaticos
 app.use('/',router)
 
 //Funcion para conectar a mongoose
