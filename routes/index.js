@@ -1,7 +1,7 @@
-const express = require('express')
-const router = express.Router()//una instancia para manejar rutas
-const User= require('../models/user.js')
-const Album= require('../models/album.js')
+const express = require('express');
+const router = express.Router();//una instancia para manejar rutas
+const User= require('../models/user.js');
+const Album= require('../models/album.js');
 
 router.get("/",(req,res)=>{
     res.status(200).send("Hola Mundo")
@@ -172,7 +172,7 @@ try {
   router.get("/album/:id", async (req, res) => {
     try {
       const user = await Album.findById(req.params.id);
-      res.status(200).send(user);
+      res.status(200).send(album);
     } catch (error) {
       res.status(500).send(error);
     }
@@ -192,4 +192,4 @@ try {
 
  
 
-module.exports=router 
+module.exports=router; 

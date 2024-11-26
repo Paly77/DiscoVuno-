@@ -8,6 +8,16 @@ const cancionSchema = new mongoose.Schema({
   duracion: {
     type: Number,
     required: true
+  },
+  youtubeLink: {
+    type: String,
+    required: true,
+    validate: {
+      validator: function (v) {
+        return /^https:\/\/(www\.)?youtube\.com\/watch\?v=/.test(v);
+      },
+      message: props => `${props.value} no es un enlace válido de YouTube.`
+    }
   }
 });
 //Modelado para album
